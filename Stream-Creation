@@ -1,0 +1,12 @@
+In Spring XD, a basic stream defines the ingestion of event driven data from a source to a sink 
+that passes through any number of processors
+
+Syntax:
+
+stream create --name streamname --definition "StreamDefinition" -- deply
+
+example:
+
+xd:> stream create --name ticktock --definition "time | log" --deploy
+
+by default the deploy property is true..
