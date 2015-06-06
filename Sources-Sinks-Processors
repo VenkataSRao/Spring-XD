@@ -1,5 +1,8 @@
 Spring-XD 1.1.0.RELEASE version supports below sources( 20 different sources)
 
+Sources:
+========
+
 HTTP
 SFTP
 Tail
