@@ -1,60 +1,66 @@
-Spring-XD 1.1.0.RELEASE version supports below sources( 20 different sources)
+Spring-XD 1.2.0.RELEASE version supports below sources( 23 different sources)
 
 Sources:
 ========
 
-HTTP
-SFTP
-Tail
 File
-Mail
-Twitter Search
-Twitter Stream
-Gemfire Source
-Gemfire CQ
-Syslog
-TCP
-TCP Client
-Reactor IP
+FTP
+GemFire Continuous Query (gemfire-cq)
+GemFire Source (gemfire)
+HTTP
+JDBC Source (jdbc)
 JMS
-RabbitMQ
-Time
-MQTT
-Stdout Capture
 Kafka
-JDBC
+Mail
+MongoDB Source (mongodb)
+MQTT
+RabbitMQ
+Reactor IP (reactor-ip)
+SFTP
+Stdout Capture
+Syslog
+Tail
+TCP
+TCP Client (tcp-client)
+Time
+Trigger Source (trigger)
+Twitter Search (twittersearch)
+Twitter Stream (twitterstream)
 
 
-Sinks Supported by Spring -xd: ( 17 Sinks )
+Sinks Supported by Spring -xd: ( 19 Sinks )
 ===================================
 
-Log
-File
-HDFS
-HDFS Dataset
-JDBC
-TCP
-Shell Command
-Mongo
-Mail
-RabbitMQ
+Dynamic Router (router)
+File Sink (file)
+FTP Sink (ftp)
 GemFire Server
-Splunk Server
-MQTT
-Dynamic Router
-Null Sink
+GPFDIST
+Hadoop (HDFS) (hdfs)
+HDFS Dataset (Avro/Parquet) (hdfs-dataset)
+JDBC
+Kafka Sink (kafka)
+Log
+Mail
+Mongo
+MQTT Sink (mqtt)
+Null Sink (null)
+RabbitMQ
 Redis
-Kafka
+Shell Sink (shell)
+Splunk Server (splunk)
+TCP Sink (tcp)
+
 
 Processors: ( 9 Processors )
 ================
 
-Filter
-Transform
-Script
-Splitter
 Aggregator
-HTTP Client
-Shell Command
-JSON to Tuple
-Object to JSON
+Filter
+HTTP Client (http-client)
+JSON to Tuple (json-to-tuple)
+Object to JSON (object-to-json)
+Script
+Shell
+Splitter
+Transform
