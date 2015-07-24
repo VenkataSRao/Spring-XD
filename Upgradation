@@ -1,0 +1,20 @@
+This will help to upgarade springXD from lower version to higher version
+
+Follow below steps
+
+Change below 3 properties file
+
+/path/to/spring-xd-1.1.0.M1/xd/config/servers.yml
+/path/to/spring-xd-1.1.0.M1/xd/config/jms-activemq.properties
+
+/path/to/spring-xd-1.1.0.M1/xd/modules/common/jms-activemqinfrastructure-context.xml
+
+==============================
+
+
+Steps to install redis
+
+cd  /path/to/spring-xd-1.2.0.RELEASE/redis/bin
+./install-redis
+
+============================
