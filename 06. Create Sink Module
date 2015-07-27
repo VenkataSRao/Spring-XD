@@ -1,0 +1,41 @@
+This is to create cassandra sink module..
+
+Follow below steps..
+
+git clone https://github.com/spring-projects/spring-xd-modules.git
+
+cd cassandra-sink
+
+./gradlew clean build
+
+module upload --file /path/to/file/modules.sink.cassandra-1.0.0.BUILD-SNAPSHOT-uber.jar --name cassandra --type sink
+(Need to give path where cassandra jar is downloadded..
+
+
+With above steps cassandra sink will be added in spring xd
+
+Testing with cassandra sink:
+============================
+Start cassandra shell then do following
+
+CREATE KEYSPACE springxd_test WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+
+use springxd_test;
+
+Spring-xd to create stream:
+=============================
+
+In Spring xd shell need to give below stream definition and http post data command..
+
+stream create cassandraTest --definition "http | cassandra --keyspace=springxd_test --ingestQuery='insert into book (isbn, 
+
+title, author) values (uuid(), ?, ?)'" --deploy
+
+
+http post --data "{\"title\": \"The Art of War\", \"author\": \"Sun Tzu\"}" --target http://172.16.0.185:9000
+
+
+
+
+
+
