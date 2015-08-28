@@ -1,0 +1,28 @@
+Log are very important feature.. Logs need to cleared always while checking code.. so change logs to local location
+
+xd-admin log:
+=======================
+
+/opt/igc_services/igc_datastore_software/spring_xd/spring-xd-1.2.0.RELEASE/xd/config/xd-admin-logback.groovy
+
+def logfileNameBase =/u/own/location/
+
+property name:
+
+Ex:
+
+def logfileNameBase = "/opt/igc_services/runtime/spring_xd/logs/admin-${System.getProperty('PID')}"
+
+
+xd-container Log:
+===================
+
+/opt/igc_services/igc_datastore_software/spring_xd/spring-xd-1.2.0.RELEASE/xd/config/xd-container-logback.groovy
+
+property name:
+
+def logfileNameBase = /ur/own/location/
+
+Ex:
+
+def logfileNameBase = "/opt/igc_services/runtime/spring_xd/logs/container-${System.getProperty('PID')}"
