@@ -26,3 +26,15 @@ def logfileNameBase = /ur/own/location/
 Ex:
 
 def logfileNameBase = "/opt/igc_services/runtime/spring_xd/logs/container-${System.getProperty('PID')}"
+
+xd-singlenode-logback log:
+==========================
+
+/opt/igc_services/igc_datastore_software/spring_xd/spring-xd-1.2.0.RELEASE/xd/config/xd-singlenode-logback.groovy
+
+def logfileNameBase = "/ur/own/location"
+
+Ex:
+
+def logfileNameBase = "/opt/igc_services/runtime/spring_xd/logs/singlenode-${System.getProperty('PID')}"
+
