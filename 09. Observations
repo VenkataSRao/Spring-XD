@@ -1,0 +1,4 @@
+Found below observation while working with springxd
+
+1. while using mqtt as source and sink with differenct topics, sink is not publishing messages to sink topic and instead it is
+publishing in source topic..
