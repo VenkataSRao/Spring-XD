@@ -6,3 +6,5 @@ publishing in source topic..
 2. When working wtih distributed environament, code( application program code ) need to copy to all clustered machines.. 
 why because, containers will be deployed on different machines, so code need to copu on all machines to execute business
 logic.
+
+3.In distributed environment, xd-shell can be opened on where xd-admin is running..
