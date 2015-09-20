@@ -1,1 +1,40 @@
-spring1.2.0 Release
+Background:
+===========
+
+Testing cassandra sink in spring1.2.0 RELEASE version ( Springxd and cassandra in distributed environment )
+=================================================
+
+cqlsh <cassandra IP>
+ 
+CREATE KEYSPACE springxd_test WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+ 
+DESCRIBE keyspaces;
+ 
+use springxd_test;
+
+CREATE TABLE book  (
+    isbn        uuid PRIMARY KEY,
+    author      text,
+    title       text
+);
+ 
+ 
+
+xd-shell
+===========
+http to casasandra stream
+-------------------
+stream create cassandraTest --definition "http | cassandra --
+contactPoints=cassandra_hostname1,cassandra_hostname2,cassandra_hostname3,cassandra_hostname4 
+--keyspace=springxd_test --ingestQuery='insert into book (isbn, title, author)  values (uuid(), ?, ?)'" --deploy
+
+
+Posting data to http
+===================
+
+http post --data "{\"title\": \"vit\", \"author\": \"gang\"}" --target http://http_container_hostname:9000
+
+http post --data "{\"title\": \"vit\", \"author\": \"gang\"}" --target http://172.16.0.185:9000
+=================
+
+
