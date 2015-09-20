@@ -1,0 +1,20 @@
+Background:
+===========
+
+Tested mqtt cassandra sink in springxd1.2.0.RELEASE version .. both psringxd and cassandra in distributed setup
+
+Create keyspace and table in cassandra as shown in http cassandra sink's case..
+
+xd-shell:
+=========
+
+Stream:
+=======
+
+
+stream create mqtt_to_cassandra --definition "mqtt --outputType=text/plain --url=tcp://activemq_server:1883 
+--username=bigdata --password=bigdata --topics=mc1 --clientId=mc1  | 
+cassandra contactPoints=cassandra_1,cassandra_2,cassandra_3,cassandra_4 
+--keyspace=springxd_test --ingestQuery='insert into book (isbn, title, author) values (uuid(), ?, ?)'" --deploy
+===========
+
