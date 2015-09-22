@@ -1,0 +1,38 @@
+These are streams for fleet project..
+
+
+
+stream create --name fleetready --definition "jms  --destination=Entity.*.Node.*.ST.Loc --pubSub=true --subscriptionName=
+Entity.*.Node.*.ST.Loc --durableSubscription=true --clientId=bda50 --outputType=text/plain | utc_to_system_time_transform | 
+filter --script=file:/path/to/file/fleetready_filter_switch.groovy | log"
+
+stream create --name readytap --definition "tap:stream:fleetready.utc_to_system_time_transform > filter --script=
+file:/path/to/file/ready.groovy | script --location=
+file:/path/to/file/ready_transform.groovy --inputType=application/json 
+--outputType=application/json | mqtt  --url=tcp://localhost:1883 --topic=fleetviolations --username=PLATFORM --password=platform
+--clientId=bda51 --inputType=application/json"
+
+stream create --name starttap --definition "tap:stream:fleetready.utc_to_system_time_transform > filter --script=
+file:/path/to/file/start.groovy | script --location=
+file:/path/to/file/start_transform.groovy --inputType=application/json 
+--outputType=application/json | mqtt  --url=tcp://localhost:1883 --topic=fleetviolations --username=PLATFORM 
+--password=platform --clientId=bda52 --inputType=application/json"
+
+stream create --name geofence_in_tap --definition "tap:stream:fleetready.utc_to_system_time_transform > filter --script=
+file:/path/to/file//geofence_in_filter.groovy | script --location=
+file:/path/to/file/geofence_in_transform.groovy --inputType=application/json 
+--outputType=application/json | mqtt  --url=tcp://localhost:1883 --topic=fleetviolations --username=PLATFORM 
+--password=platform --clientId=bda53 --inputType=application/json" 
+
+stream create --name geofence_out_tap --definition "tap:stream:fleetready.utc_to_system_time_transform > filter 
+--script=file:/path/to/file/geofence_out_filter.groovy | script --location=
+file:/path/to/file/geofence_out_transform.groovy --inputType=application/json 
+--outputType=application/json | mqtt  --url=tcp://localhost:1883 --topic=fleetviolations --username=PLATFORM 
+--password=platform --clientId=bda54 --inputType=application/json" 
+
+stream create --name endtap --definition "tap:stream:fleetready.utc_to_system_time_transform > filter --script=
+file:/path/to/file/end.groovy | script --location=
+file:/path/to/file/end_transform.groovy --inputType=application/json 
+--outputType=application/json | mqtt  --url=tcp://localhost:1883 --topic=fleetviolations --username=PLATFORM 
+--password=platform --clientId=bda55 --inputType=application/json"
+
